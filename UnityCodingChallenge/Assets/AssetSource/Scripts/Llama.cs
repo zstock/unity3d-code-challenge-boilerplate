@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class Llama : MonoBehaviour
 {
@@ -33,8 +35,11 @@ public class Llama : MonoBehaviour
     }
 
     private LlamaShepherd.LlamaDiet diet;
+    private NavMeshAgent _agent;
 
+    public System.Action<Llama> onDeath;
 
+    #region LLAMA STATS
     public void SetDiet(LlamaShepherd.LlamaDiet newDietType)
     {
         if(newDietType != diet)
@@ -58,6 +63,16 @@ public class Llama : MonoBehaviour
 
     public void Death()
     {
+        onDeath?.Invoke(this);
         gameObject.SetActive(false);
     }
+
+    #endregion
+
+    #region LLAMA NAVIGATION
+    private void SelectNewDestination()
+    {
+
+    }
+    #endregion
 }

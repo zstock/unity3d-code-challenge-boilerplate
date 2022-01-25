@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets all Animator parameters to false, which works for our purposes in this test.
+    /// Sets all Animator parameters except one to false, which works for our purposes in this test.
     /// </summary>
     /// <param name="state">The state to set to true.</param>
     private void SetAnimationState(string state)
